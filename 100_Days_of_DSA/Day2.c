@@ -30,6 +30,5 @@ int main() {
     for (int i=0 ; i<n-1 ; i++) { // Prints the new array.
         printf("%d ",array[i]);
     }
-    printf("%d",sizeof(array)/sizeof(array[0]));
     return 0;
 }
