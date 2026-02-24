@@ -26,7 +26,7 @@ typedef struct node {
 } node;
 
 int main() {
-    node *head,*temp,*newNode;
+    node *head = NULL, *temp = NULL, *newNode = NULL;
 
     int n;
     scanf("%d", &n);
@@ -51,18 +51,27 @@ int main() {
         temp->next = newNode;
         temp = newNode;
     }
+
     int key;
-    scanf("%d",&key);
+    scanf("%d", &key);
 
-    temp = head;
-    while (temp!=NULL) {
-        if (temp->next->data == key) {
-            temp->next = temp->next->next;
-            break;
+    // Delete first occurrence of key
+    if (head->data == key) {
+        node *del = head;
+        head = head->next;
+        free(del);
+    } else {
+        temp = head;
+        while (temp->next != NULL) {
+            if (temp->next->data == key) {
+                node *del = temp->next;
+                temp->next = temp->next->next;
+                free(del);
+                break;
+            }
+            temp = temp->next;
         }
-        temp = temp->next;
     }
-
 
     // Print linked list
     temp = head;
@@ -71,7 +80,7 @@ int main() {
         temp = temp->next;
     }
 
-    // Free memory
+    // Free remaining memory
     temp = head;
     while (temp != NULL) {
         node *del = temp;
