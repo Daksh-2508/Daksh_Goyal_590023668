@@ -1,12 +1,12 @@
-/*Problem: Perform BFS from a given source using queue.
+/*Problem: Perform DFS starting from a given source vertex using recursion.
 
 Input:
 - n
 - adjacency list
-- source s
+- starting vertex s
 
 Output:
-- BFS traversal order*/
+- DFS traversal order*/
 
 #include <stdio.h>
 #include <stdlib.h>
